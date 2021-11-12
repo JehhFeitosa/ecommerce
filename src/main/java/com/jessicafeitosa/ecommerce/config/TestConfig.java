@@ -10,10 +10,14 @@ import org.springframework.context.annotation.Profile;
 
 import com.jessicafeitosa.ecommerce.entities.Category;
 import com.jessicafeitosa.ecommerce.entities.Order;
+import com.jessicafeitosa.ecommerce.entities.OrderItem;
+import com.jessicafeitosa.ecommerce.entities.Product;
 import com.jessicafeitosa.ecommerce.entities.User;
 import com.jessicafeitosa.ecommerce.entities.enums.OrderStatus;
 import com.jessicafeitosa.ecommerce.repositories.CategoryRepository;
+import com.jessicafeitosa.ecommerce.repositories.OrderItemRepository;
 import com.jessicafeitosa.ecommerce.repositories.OrderRepository;
+import com.jessicafeitosa.ecommerce.repositories.ProductRepository;
 import com.jessicafeitosa.ecommerce.repositories.UserRepository;
 
 @Configuration
@@ -29,6 +33,12 @@ public class TestConfig implements CommandLineRunner{
 	@Autowired
 	private CategoryRepository categoryRepository;
 	
+	@Autowired
+	private ProductRepository productRepository;
+	
+	@Autowired
+	private OrderItemRepository orderItemRepository;
+	
 
 	//Tudo que for implementado dentro desse método
 	//será executado quando chamar essa classe
@@ -39,7 +49,24 @@ public class TestConfig implements CommandLineRunner{
 		Category cat2 = new Category(null, "Books"); 
 		Category cat3 = new Category(null, "Computers");
 		
+		Product p1 = new Product(null, "The Lord of the Rings", "Lorem ipsum dolor sit amet, consectetur.", 90.5, ""); 
+		Product p2 = new Product(null, "Smart TV", "Nulla eu imperdiet purus. Maecenas ante.", 2190.0, ""); 
+		Product p3 = new Product(null, "Macbook Pro", "Nam eleifend maximus tortor, at mollis.", 1250.0, ""); 
+		Product p4 = new Product(null, "PC Gamer", "Donec aliquet odio ac rhoncus cursus.", 1200.0, ""); 
+		Product p5 = new Product(null, "Rails for Dummies", "Cras fringilla convallis sem vel faucibus.", 100.99, ""); 
+		
 		categoryRepository.saveAll(Arrays.asList(cat1, cat2, cat3));
+		productRepository.saveAll(Arrays.asList(p1, p2, p3, p4, p5));
+		
+		p1.getCategories().add(cat2);
+		p2.getCategories().add(cat1);
+		p2.getCategories().add(cat3);
+		p3.getCategories().add(cat3);
+		p4.getCategories().add(cat3);
+		p5.getCategories().add(cat2);
+		
+		productRepository.saveAll(Arrays.asList(p1, p2, p3, p4, p5));
+		
 		
 		User u1 = new User(null, "Maria", "maria@gmail.com", "9888898988", "123456");
 		User u2 = new User(null, "João", "joao@gmail.com", "9888898988", "123456");
@@ -51,6 +78,13 @@ public class TestConfig implements CommandLineRunner{
 		
 		userRepository.saveAll(Arrays.asList(u1, u2));
 		orderRepository.saveAll(Arrays.asList(o1, o2, o3));
+		
+		OrderItem oi1 = new OrderItem(o1, p1, 2, p1.getPrice()); 
+		OrderItem oi2 = new OrderItem(o1, p3, 1, p3.getPrice()); 
+		OrderItem oi3 = new OrderItem(o2, p3, 2, p3.getPrice()); 
+		OrderItem oi4 = new OrderItem(o3, p5, 2, p5.getPrice()); 
+		
+		orderItemRepository.saveAll(Arrays.asList(oi1, oi2, oi3, oi4));
 	}
 	
 
