@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.jessicafeitosa.ecommerce.entities.User;
 import com.jessicafeitosa.ecommerce.repositories.UserRepository;
+import com.jessicafeitosa.ecommerce.services.exceptions.ResourcesNotFoundException;
 
 @Service
 public class UserService {
@@ -21,7 +22,7 @@ public class UserService {
 
 	public User findById(Long id) {
 		 Optional<User> obj = repository.findById(id);
-		 return obj.get();
+		 return obj.orElseThrow(() -> new ResourcesNotFoundException(id));
 	}
 
 	public User insert (User obj) {
