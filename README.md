@@ -1,7 +1,8 @@
 <h1 align="center">E-Commerce</h1>
 
-<p align="center">E-commerce project that developed a CRUD for ordering and registering users.</p>
+<h3 align="center">E-commerce project that developed a CRUD for ordering and registering users.</h3>
 
+<br>
 <br>
 
 
@@ -21,6 +22,9 @@ What was done:
 <!--te-->
 
 
+<br>
+
+
 
 ### Features
 
@@ -28,6 +32,7 @@ What was done:
 - [x] Creation, Modification, Query and Deletion of Products
 - [x] Creation, Modification, Query and Deletion of Requests
 
+<br>
 
 
 ### 🛠 Technologies
@@ -41,6 +46,11 @@ The following tools were used in the construction of the project:
 - [Heroku](https://id.heroku.com/login)
 - [Postgresql](https://www.postgresql.org/download/)
 - [H2](http://fullstackninja.com.br/h2-database-com-spring-data/)
+
+
+<br>
+<br>
+
 
 
 ### Author
