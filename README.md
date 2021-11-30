@@ -24,9 +24,10 @@ What was done:
 
 ### Features
 
-- [x] Creation, Modification, Query and Deletion of Users
-- [x] Creation, Modification, Query and Deletion of Products
-- [x] Creation, Modification, Query and Deletion of Requests
+- [x] Creation, Modification, Query and Delete of Users
+- [x] Query of Products
+- [x] Query of Category
+- [x] Query of Orders
 
 
 
@@ -41,6 +42,12 @@ The following tools were used in the construction of the project:
 - [Heroku](https://id.heroku.com/login)
 - [Postgresql](https://www.postgresql.org/download/)
 - [H2](http://fullstackninja.com.br/h2-database-com-spring-data/)
+
+
+### Services
+
+- [Payload of Services](https://grizzled-racer-225.notion.site/SERVICES-ECOMMERCE-d4c6710138db47dea40c6336efd8fca9)
+
 
 
 ### Author
